@@ -1,0 +1,36 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.chenjie.brastlewark",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "5.4.0",
+    "applicationType": "monolith",
+    "baseName": "Brastlewark",
+    "packageName": "com.chenjie.brastlewark",
+    "packageFolder": "com/chenjie/brastlewark",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NmVmMmVjMzBlZWE2NmI2YTQ4NWU4ZDUyOGI4NzI2ZmQ5NDM1ZTZiMmIwMDIxOGNhOTBlM2M5Njg4NGVjYTIyZWQ0ODMzMDM4MjBjYzQ5MjM4ODBkYjcwMDk0NDgxYTE1ODYyZjdkMDM1MjkzMGJjZTYxNTdiYWMxMDdiYTM0MDA=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": [
+      "es"
+    ]
+  }
+}
