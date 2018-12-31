@@ -1,0 +1,26 @@
+
+{
+    "brastlewarkApp": {
+        "gnome" : {
+            "home": {
+                "title": "Gnomes",
+                "createLabel": "Crear nuevo Gnome",
+                "createOrEditLabel": "Crear o editar Gnome"
+            },
+            "created": "Un nuevo Gnome ha sido creado con el identificador {{ param }}",
+            "updated": "Un Gnome ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Gnome ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Gnome {{ id }}?"
+            },
+            "detail": {
+                "title": "Gnome"
+            },
+            "name": "Name",
+            "thumbmail": "Thumbmail",
+            "weight": "Weight",
+            "height": "Height",
+            "hair_color": "Hair Color"
+        }
+    }
+}

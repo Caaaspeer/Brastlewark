@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="gnome">
+            <h2><span jhiTranslate="brastlewarkApp.gnome.detail.title">Gnome</span> {{gnome.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="brastlewarkApp.gnome.name">Name</span></dt>
+                <dd>
+                    <span>{{gnome.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="brastlewarkApp.gnome.thumbmail">Thumbmail</span></dt>
+                <dd>
+                    <span>{{gnome.thumbmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="brastlewarkApp.gnome.weight">Weight</span></dt>
+                <dd>
+                    <span>{{gnome.weight}}</span>
+                </dd>
+                <dt><span jhiTranslate="brastlewarkApp.gnome.height">Height</span></dt>
+                <dd>
+                    <span>{{gnome.height}}</span>
+                </dd>
+                <dt><span jhiTranslate="brastlewarkApp.gnome.hair_color">Hair Color</span></dt>
+                <dd>
+                    <span>{{gnome.hair_color}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/gnome', gnome.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

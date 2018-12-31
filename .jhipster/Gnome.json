@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "thumbmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "hair_color",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20181231123651",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "gnome",
+    "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll"
+}

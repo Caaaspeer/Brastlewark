@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-gnome-heading" jhiTranslate="brastlewarkApp.gnome.home.createOrEditLabel">Create or edit a Gnome</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!gnome.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="gnome.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brastlewarkApp.gnome.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="gnome.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brastlewarkApp.gnome.thumbmail" for="field_thumbmail">Thumbmail</label>
+                    <input type="text" class="form-control" name="thumbmail" id="field_thumbmail"
+                        [(ngModel)]="gnome.thumbmail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brastlewarkApp.gnome.weight" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                        [(ngModel)]="gnome.weight" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brastlewarkApp.gnome.height" for="field_height">Height</label>
+                    <input type="number" class="form-control" name="height" id="field_height"
+                        [(ngModel)]="gnome.height" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brastlewarkApp.gnome.hair_color" for="field_hair_color">Hair Color</label>
+                    <input type="text" class="form-control" name="hair_color" id="field_hair_color"
+                        [(ngModel)]="gnome.hair_color" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
