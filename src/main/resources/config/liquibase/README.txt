@@ -1,0 +1,9 @@
+- Crear aplicación monolítica con JHipster (a poder ser última versión).
+- Crear las tablas correspondientes a los csv y cargar estos por liquibase.
+- Crear los correspondientes componentes en servidor (Entities, Services, DTO, Resources, etc).
+- Tests!!
+- Añadir al frontEnd lo realizado en el anterior assessment.
+- Realizar las correspondientes modificaciones para, en vez de leer el .json, llamar a server.
+- En el frontEnd debe haber como mínimo una vista con un listado y una vista de detalles de un gnomo previamente seleccionado en la lista.
+- La vista de listado debe requerir permisos de usuario o administrador. La vista de detalles debe requerir permisos de administrador.
+- Good Luck!
