@@ -36,8 +36,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/Brastlewark
-        username: Brastlewark
-        password:
+        username: postgres
+        password: altra314159
         hikari:
             auto-commit: false
     jpa:
