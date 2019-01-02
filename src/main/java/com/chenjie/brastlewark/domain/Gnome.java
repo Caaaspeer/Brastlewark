@@ -5,7 +5,9 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Gnome.
@@ -35,7 +37,19 @@ public class Gnome implements Serializable {
 
     @Column(name = "hair_color")
     private String hair_color;
+    
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "GNOME_GNOME", joinColumns = {
+			@JoinColumn(name = "ID_GNOME1", nullable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "ID_GNOME2", nullable = false) })
+	private Set<Gnome> friends = new HashSet<Gnome>(0);
 
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "GNOME_GNOME", joinColumns = {
+			@JoinColumn(name = "ID_GNOME2", nullable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "ID_GNOME1", nullable = false) })
+	private Set<Gnome> friendsInverse = new HashSet<Gnome>(0);
+	
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

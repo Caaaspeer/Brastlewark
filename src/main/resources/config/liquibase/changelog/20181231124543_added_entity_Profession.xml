@@ -29,5 +29,12 @@
         </createTable>
         
     </changeSet>
+        <changeSet id="20181231124543-2" author="jhipster">
+        <loadData encoding="UTF-8"
+            file="config/liquibase/professions.csv"
+            separator=";"
+            tableName="profession">
+    </loadData>
+    </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

@@ -46,4 +46,11 @@
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+    <changeSet id="20181231123651-2" author="jhipster">
+        <loadData encoding="UTF-8"
+            file="config/liquibase/gnomes.csv"
+            separator=";"
+            tableName="gnome">
+    </loadData>
+    </changeSet>
 </databaseChangeLog>
