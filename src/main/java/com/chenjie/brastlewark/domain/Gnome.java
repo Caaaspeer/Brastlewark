@@ -3,9 +3,11 @@ package com.chenjie.brastlewark.domain;
 
 import javax.persistence.*;
 
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -50,7 +52,34 @@ public class Gnome implements Serializable {
 					@JoinColumn(name = "ID_GNOME1", nullable = false) })
 	private Set<Gnome> friendsInverse = new HashSet<Gnome>(0);
 	
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+	@OneToMany(mappedBy = "id.gnome")
+	private List<GnomeProfession> gnomeProfession;
+	
+    public Set<Gnome> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(Set<Gnome> friends) {
+		this.friends = friends;
+	}
+
+	public Set<Gnome> getFriendsInverse() {
+		return friendsInverse;
+	}
+
+	public void setFriendsInverse(Set<Gnome> friendsInverse) {
+		this.friendsInverse = friendsInverse;
+	}
+
+	public List<GnomeProfession> getGnomeProfession() {
+		return gnomeProfession;
+	}
+
+	public void setGnomeProfession(List<GnomeProfession> gnomeProfession) {
+		this.gnomeProfession = gnomeProfession;
+	}
+
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }

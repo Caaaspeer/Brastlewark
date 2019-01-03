@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Administrator (generated)" id="1546475365411-1">
+        <createTable tableName="gnome_gnome">
+            <column name="id_gnome2" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_gnome1" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1546475365411-2">
+        <createTable tableName="gnome_profession">
+            <column name="activo" type="BOOLEAN"/>
+            <column name="id_gnome" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_profession" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1546475365411-3">
+        <addPrimaryKey columnNames="id_gnome1, id_gnome2" tableName="gnome_gnome"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1546475365411-4">
+        <addPrimaryKey columnNames="id_gnome, id_profession" constraintName="gnome_professionPK" tableName="gnome_profession"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1546475365411-5">
+        <addForeignKeyConstraint baseColumnNames="id_gnome" baseTableName="gnome_profession" constraintName="FK4fgesvjh7r5s69gjwpauxq843" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="gnome"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1546475365411-6">
+        <addForeignKeyConstraint baseColumnNames="id_gnome1" baseTableName="gnome_gnome" constraintName="FKi0b7g5qb03qpyfwg4wqj503a8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="gnome"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1546475365411-7">
+        <addForeignKeyConstraint baseColumnNames="id_gnome2" baseTableName="gnome_gnome" constraintName="FKk7qllqowtk330rt1dk95o30ff" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="gnome"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1546475365411-8">
+        <addForeignKeyConstraint baseColumnNames="id_profession" baseTableName="gnome_profession" constraintName="FKpwknnkwdsg3utqrgfai7chtn7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profession"/>
+    </changeSet>
+    <changeSet id="1546475365411-9" author="jhipster">
+        <loadData encoding="UTF-8"
+            file="config/liquibase/gnome_gnome.csv"
+            separator=";"
+            tableName="gnome_gnome">
+    </loadData>
+    </changeSet>
+        <changeSet id="1546475365411-10" author="jhipster">
+        <loadData encoding="UTF-8"
+            file="config/liquibase/gnome_profession.csv"
+            separator=";"
+            tableName="gnome_profession">
+    </loadData>
+    </changeSet>
+</databaseChangeLog>

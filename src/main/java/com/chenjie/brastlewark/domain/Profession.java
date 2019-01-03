@@ -4,6 +4,7 @@ package com.chenjie.brastlewark.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -23,7 +24,18 @@ public class Profession implements Serializable {
     @Column(name = "name")
     private String name;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+	@OneToMany(mappedBy = "id.profession")
+	private List<GnomeProfession> gnomeProfession;
+    
+    public List<GnomeProfession> getGnomeProfession() {
+		return gnomeProfession;
+	}
+
+	public void setGnomeProfession(List<GnomeProfession> gnomeProfession) {
+		this.gnomeProfession = gnomeProfession;
+	}
+
+	// jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }

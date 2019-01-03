@@ -91,7 +91,7 @@ public class GnomeResource {
     @Timed
     public ResponseEntity<List<GnomeDTO>> getAllGnomes(Pageable pageable) {
         log.debug("REST request to get a page of Gnomes");
-        Page<GnomeDTO> page = gnomeService.findAll(pageable);
+        List<GnomeDTO> page = gnomeService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/gnomes");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

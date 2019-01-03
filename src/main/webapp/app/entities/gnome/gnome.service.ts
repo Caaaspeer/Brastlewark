@@ -32,6 +32,10 @@ export class GnomeService {
         return this.http.get<IGnome[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 
+    getData(): Observable<EntityArrayResponseType> {
+        return this.http.get<IGnome[]>(`${this.resourceUrl}`, { observe: 'response' });
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }

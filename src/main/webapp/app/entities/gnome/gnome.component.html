@@ -1,62 +1,61 @@
-<div>
-    <h2 id="page-heading">
-        <span jhiTranslate="brastlewarkApp.gnome.home.title">Gnomes</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-gnome" [routerLink]="['/gnome/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="brastlewarkApp.gnome.home.createLabel">
-            Create new Gnome
-            </span>
-        </button>
-    </h2>
-    <jhi-alert></jhi-alert>
-    <br/>
-    <div class="table-responsive" *ngIf="gnomes">
-        <table class="table table-striped">
-            <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="name"><span jhiTranslate="brastlewarkApp.gnome.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="thumbmail"><span jhiTranslate="brastlewarkApp.gnome.thumbmail">Thumbmail</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="weight"><span jhiTranslate="brastlewarkApp.gnome.weight">Weight</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="height"><span jhiTranslate="brastlewarkApp.gnome.height">Height</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="hair_color"><span jhiTranslate="brastlewarkApp.gnome.hair_color">Hair Color</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th></th>
-            </tr>
-            </thead>
-            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
-            <tr *ngFor="let gnome of gnomes ;trackBy: trackId">
-                <td><a [routerLink]="['/gnome', gnome.id, 'view' ]">{{gnome.id}}</a></td>
-                <td>{{gnome.name}}</td>
-                <td>{{gnome.thumbmail}}</td>
-                <td>{{gnome.weight}}</td>
-                <td>{{gnome.height}}</td>
-                <td>{{gnome.hair_color}}</td>
-                <td class="text-right">
-                    <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
-                                [routerLink]="['/gnome', gnome.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/gnome', gnome.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'gnome/'+ gnome.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<div *ngIf=gnomes>
+    <table class="table table-dark table-hover table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th><button (click)="doFilter()">Filter</button></th>
+          <th><input [(ngModel)]="filter.name" type="text"></th>
+          <th>
+              from:<input size="4" [(ngModel)]="filter.lowAge" type="number">
+              <br>
+              to: <input size="4" [(ngModel)]="filter.plusAge" type="number">
+          </th>
+          <th>
+              from:<input size="4" [(ngModel)]="filter.lowHeight" type="number"><br> to:<input size="4" [(ngModel)]="filter.plusHeight" type="number"></th>
+          <th>from:<input size="4" [(ngModel)]="filter.lowWeight" type="number"><br>to:<input size="4" [(ngModel)]="filter.plusWeight" type="number"></th>
+          <th><input [(ngModel)]="filter.hair" type="text"></th>
+          <th><input [(ngModel)]="filter.professions" type="text"></th>
+          <th><input [(ngModel)]="filter.frend" type="text"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Height</th>
+          <th>Weight</th>
+          <th>Hair</th>
+          <th>Professions</th>
+          <th>Friends</th>
+        </tr>
+        <ng-container *ngFor="let data of gnomes">
+          <tr *ngIf="data.show">
+            <td>
+              <img width="100px" height="80px" src="{{data.thumbnail}}" />
+            </td>
+            <td>
+              {{data.name}}
+            </td>
+            <td>
+              {{data.age}}
+            </td>
+            <td>
+              {{data.height}}
+            </td>
+            <td>
+              {{data.weight}}
+            </td>
+            <td>
+              {{data.hair_color}}
+            </td>
+            <td style="overflow:auto;">
+              {{data.professions}}
+            </td>
+            <td style="overflow:auto;">
+              {{data.friends}}
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
